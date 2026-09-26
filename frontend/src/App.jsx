@@ -14,9 +14,11 @@ function App() {
     <div>
       <WaveDivider {...animated}/>
 
-      <button onClick={() => setPage('home')}>home</button>
-      <button onClick={() => setPage('about')}>about</button>
-      <button onClick={() => setPage('projects')}>projects</button>
+      {Object.keys(wavePresets).map((name) => (
+        <button key={name} onClick={() => setPage(name)}>
+          {name}
+        </button>
+      ))}
     </div>
   )
 }
