@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { lerpColor } from './colorUtils'
 
 const ease = (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2)
 
@@ -19,7 +20,7 @@ function useAnimatedWave(target, duration = 600) {
         amplitude: start.amplitude + (target.amplitude - start.amplitude) * k,
         frequency: start.frequency + (target.frequency - start.frequency) * k,
         phase: start.phase + (target.phase - start.phase) * k,
-        color: target.color,
+        color: lerpColor(start.color, target.color, k),
       }
 
       currentRef.current = next
