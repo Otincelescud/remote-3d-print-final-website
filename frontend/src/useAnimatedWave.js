@@ -20,6 +20,9 @@ function useAnimatedWave(target, duration = 600) {
         amplitude: start.amplitude + (target.amplitude - start.amplitude) * k,
         frequency: start.frequency + (target.frequency - start.frequency) * k,
         phase: start.phase + (target.phase - start.phase) * k,
+        wobbleAmplitude: start.wobbleAmplitude + (target.wobbleAmplitude - start.wobbleAmplitude) * k,
+        wobbleFrequency: start.wobbleFrequency + (target.wobbleFrequency - start.wobbleFrequency) * k,
+        wobblePhase: start.wobblePhase + (target.wobblePhase - start.wobblePhase) * k,
         color: lerpColor(start.color, target.color, k),
       }
 
