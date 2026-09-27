@@ -3,15 +3,8 @@ import './App.css'
 import WaveDivider from './Wave'
 import wavePresets from './wavePresets'
 import useAnimatedWave from './useAnimatedWave'
-
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from '@/components/ui/card'
+import ProjectCard from './ProjectCard'
+import projects from './projectData'
 
 function App() {
   const [page, setPage] = useState("home")
@@ -34,17 +27,12 @@ function App() {
       </header>
       <WaveDivider {...animated} />
     </div>
-
-    <Card className="max-w-sm">
-      <img className="rounded-t-xl aspect-video object-cover" />
-      <CardHeader>
-        <CardTitle>title</CardTitle>
-        <CardDescription>description</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <span className="text-sm text-muted-foreground">status</span>
-      </CardContent>
-    </Card>
+    
+    <div>
+    {projects.map((project) => (
+      <ProjectCard key={project.slug} project={project} />
+    ))}
+    </div>
     </div>
   )
 }
