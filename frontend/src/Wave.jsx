@@ -12,14 +12,19 @@ function WaveDivider({
     const centerY = height / 2
 
     const total = amplitude + wobbleAmplitude
-    const scale = total > centerY ? centerY / total : 1
+    const swing = Math.min(total, centerY)   // max pixels the wave may move from the centre
+    const k = 1.2      
 
     const points = []
     const step = 5
     for (let x = 0; x <= width; x += step) {
         const main = amplitude * Math.sin((2 * Math.PI * frequency * x) / width + phase)
         const wobble = wobbleAmplitude * Math.sin((2 * Math.PI * wobbleFrequency * x) / width + wobblePhase)
-        const y = centerY + scale * (main + wobble)
+        
+        const v = total > 0 ? (main + wobble) / total : 0        // normalized to -1..1
+        const shaped = Math.tanh(k * v) / Math.tanh(k)           // still -1..1, but with flatter peaks
+        const y = centerY + swing * shaped
+        
         points.push({ x, y })
     }
 
