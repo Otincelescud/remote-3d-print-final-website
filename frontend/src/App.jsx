@@ -14,25 +14,25 @@ function App() {
 
   return (
     <div>
-    <div>
-      <header>
-        <h1 className="text-4xl font-bold text-orange-500">Placeholder title</h1>
-        <nav>
-          {Object.keys(wavePresets).map((name) => (
-            <button key={name} onClick={() => setPage(name)}>
-              {name}
-            </button>
-          ))}
-        </nav>
-      </header>
-      <WaveDivider {...animated} />
-    </div>
-    
-    <div>
-    {projects.map((project) => (
-      <ProjectCard key={project.slug} project={project} />
-    ))}
-    </div>
+      <div>
+        <header>
+          <h1 className="text-4xl font-bold text-orange-500">Placeholder title</h1>
+          <nav>
+            {Object.keys(wavePresets).map((name) => (
+              <button key={name} onClick={() => setPage(name)}>
+                {name}
+              </button>
+            ))}
+          </nav>
+        </header>
+        <WaveDivider {...animated} />
+      </div>
+      
+      <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
+      {projects.map((project) => (
+        <ProjectCard key={project.slug} project={project} />
+      ))}
+      </div>
     </div>
   )
 }

@@ -22,14 +22,14 @@ function ProjectCard({ project }) {
   const { title, shortDescription, image, status } = project
 
   return (
-    <Card>
+    <Card className="h-full flex flex-col">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{shortDescription}</CardDescription>
       </CardHeader>
-      <CardContent>
-        <Badge variant={statusVariant[status]}>{statusLabel[status]}</Badge>
-        <img src={image} alt={title} className="rounded-t-xl aspect-video object-cover" />
+      <CardContent className="mt-auto">
+        <Badge variant={statusVariant[status]} className="text-sm text-muted-foreground">{statusLabel[status]}</Badge>
+        <img src={image} alt={title} className="aspect-video object-cover" />
       </CardContent>
     </Card>
   )
