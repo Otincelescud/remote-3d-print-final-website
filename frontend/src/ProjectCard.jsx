@@ -22,7 +22,7 @@ function ProjectCard({ project }) {
   const { title, shortDescription, image, status } = project
 
   return (
-    <Card className="h-full flex flex-col">
+    <Card className="h-full flex flex-col rounded-md transition-all hover:ring-orange-500/50 hover:bg-white/5">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{shortDescription}</CardDescription>
